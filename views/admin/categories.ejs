@@ -1,0 +1,33 @@
+<%- include('../layouts/adminheader')%> 
+
+<h2 class="page-title">Add Category</h2>
+
+<a href="/admin/categories/add-category" class="btn btn-primary">Add New Category</a>
+<br><br>
+
+<% let n = 1; %> 
+
+<table class="table table-hover table-striped">
+    <thead>
+      <tr class="home">
+        <th>N<sup>o</sup></th>
+        <th>Title</th>       
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+        <% categories.forEach(cat => { %>
+            <tr">
+                <td><%= n %></td>
+                <td><%= cat.title %></td>
+                <td><a class="btn btn-sm btn-success" href="/admin/categories/edit-category/<%= cat.id %>">Edit</a></td>
+                <td><a class="btn btn-sm btn-danger confirmDelete" href="/admin/categories/delete-category/<%= cat._id %> ">Delete</a></td>
+            </tr>
+        <% n++ }); %>     
+    </tbody>    
+</table>      
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js""></script>
+
+<%- include('../layouts/adminfooter') %> 

@@ -1,0 +1,50 @@
+<%- include('../layouts/adminheader')%> 
+
+<h2 class="page-title">Products</h2>
+
+<a href="/admin/products/add-product" class="btn btn-primary">Add New Product</a>
+<br><br>
+
+<% let n = 1; %> 
+
+<% if (count>0) { %>
+
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr class="home">
+            <th>N<sup>o</sup></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Product Image</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(p => { %>
+                <tr>
+                    <td><%= n %></td>
+                    <td><%= p.title %></td>
+                    <td><%= p.price %></td>
+                    <td><%= p.category %></td>
+                    <td>
+                        <% if (p.image=="") { %>
+                            <img src="/images/noimage.png">
+                        <% } else { %>
+                            <img src="/product_images/<%= p._id %>/<%= p.image %>">
+                        <% } %>                     
+                    </td>
+                    <td><a class="btn btn-sm btn-success" href="/admin/products/edit-product/<%= p._id %> ">Edit</a></td>
+                    <td><a class="btn btn-sm btn-danger confirmDelete" href="/admin/products/delete-product/<%= p._id %> ">Delete</a></td>
+                </tr>
+            <% n++ }); %>     
+        </tbody>    
+    </table>      
+<% } else { %>
+   <h3 class="text-center"> No Product found</h3>  
+<% } %>
+
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js""></script>
+
+<%- include('../layouts/adminfooter') %> 

@@ -1,0 +1,22 @@
+.sorting tr:not(.home) {
+    cursor: pointer;
+}
+
+.ui-state-hightlight{
+
+   border: 1px dashed #00917c;
+}
+
+.sorting tr:is(.home) {
+    background-color: #69beb2;
+}
+
+#id_60390bcf682b3d2a53a977ae {
+    /* background-color: #4e857d; */
+    border: 2px solid rgb(192, 25, 25);
+    /* color: azure; */
+}
+
+#imgPreview {
+    margin: 20px;
+}
